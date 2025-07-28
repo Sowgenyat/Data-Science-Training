@@ -1,0 +1,6 @@
+ID,Name,Age,Score,Tax_ID,Status
+1,Aarav,18.0,85.0,TAX-1,Distinction
+2,Sanya,17.0,90.0,TAX-2,Distinction
+3,Meera,19.0,0.0,TAX-3,Failed
+4,Karthik,18.0,78.0,TAX-4,Passed
+5,Rohan,18.0,88.0,TAX-5,Distinction
