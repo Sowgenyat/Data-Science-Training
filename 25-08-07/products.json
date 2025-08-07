@@ -1,0 +1,10 @@
+{"product_id":101,"product_name":"Laptop","category":"Electronics","price":55000,"quantity":10}
+{"product_id":102,"product_name":"Smartphone","category":"Electronics","price":30000,"quantity":25}
+{"product_id":103,"product_name":"Chair","category":"Furniture","price":2500,"quantity":50}
+{"product_id":104,"product_name":"Book","category":"Stationery","price":400,"quantity":200}
+{"product_id":105,"product_name":"Headphones","category":"Electronics","price":1500,"quantity":100}
+{"product_id":106,"product_name":"Table","category":"Furniture","price":3200,"quantity":40}
+{"product_id":107,"product_name":"Pen","category":"Stationery","price":20,"quantity":500}
+{"product_id":108,"product_name":"Monitor","category":"Electronics","price":12000,"quantity":15}
+{"product_id":109,"product_name":"Notebook","category":"Stationery","price":60,"quantity":300}
+{"product_id":110,"product_name":"Sofa","category":"Furniture","price":45000,"quantity":5}
