@@ -1,0 +1,11 @@
+patient_id,name,age,gender,disease,admission_date,discharge_date,treatment_cost
+P001,John Doe,45,M,Diabetes,2024-10-12,2024-10-20,15000
+P002,Aisha Sharma,30,F,Fracture,2025-01-05,2025-01-12,22000
+P003,Ravi Kumar,62,M,Heart Disease,2025-03-14,2025-03-28,50000
+P004,Sunita Das,29,F,Fever,2025-05-01,2025-05-03,3000
+P005,David Lee,50,M,Hypertension,2024-12-20,2024-12-28,12000
+P006,Reema Paul,41,F,Appendicitis,2025-02-10,2025-02-16,18000
+P007,Ali Khan,38,M,Fracture,2025-06-18,2025-06-25,21000
+P008,Meena Joshi,55,F,Diabetes,2025-04-01,2025-04-10,16000
+P009,Victor Hugo,67,M,Stroke,2025-07-15,2025-07-30,65000
+P010,Neha Singh,36,F,Fever,2025-08-01,2025-08-03,3500
