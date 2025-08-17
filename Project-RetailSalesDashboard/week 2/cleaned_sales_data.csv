@@ -1,3 +1,7 @@
 sale_id,sale_date,quantity,product_name,category,price,cost,store_name,region,employee_name,role,revenue,profit,profit_margin
 1,2025-07-01,3,Laptop,Electronics,54000.0,48000.0,All things,South,Rohit Kumar,Sales Associate,162000.0,18000.0,11.11111111111111
 2,2025-07-01,10,Mouse,Electronics,700.0,500.0,Delhi Mall,North,Ankitha,Cashier,7000.0,2000.0,28.57142857142857
+4,2025-07-02,15,Headphones,Electronics,1500.0,1000.0,All things,South,Rohit Kumar,Sales Associate,22500.0,7500.0,33.33333333333333
+5,2025-07-02,20,Shirt,Clothing,1200.0,800.0,Delhi Mall,North,Ankitha,Cashier,24000.0,8000.0,33.33333333333333
+6,2025-07-03,10,Shoes,Clothing,2500.0,1800.0,All things,South,Rohit Kumar,Sales Associate,25000.0,7000.0,28.000000000000004
+7,2025-07-03,3,Sofa,Furniture,20000.0,15000.0,Delhi Mall,North,Ankitha,Cashier,60000.0,15000.0,25.0

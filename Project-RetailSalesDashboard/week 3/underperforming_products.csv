@@ -1,2 +1,0 @@
-sale_id,sale_date,quantity,product_name,category,price,cost,store_name,region,employee_name,role,revenue,profit,profit_margin
-1,2025-07-01,3,Laptop,Electronics,54000.0,48000.0,All things,South,Rohit Kumar,Sales Associate,162000.0,18000.0,11.11111111111111
