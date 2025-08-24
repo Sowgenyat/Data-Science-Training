@@ -1,0 +1,58 @@
+trigger:
+  branches:
+    include:
+      - main
+      - dev
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  pythonVersion: '3.10'
+  outputFolder: 'outputs'
+
+steps:
+# Step 1 - Checkout Code
+- task: Checkout@1
+  displayName: 'Checkout source code'
+
+# Step 2 - Setup Python
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+    addToPath: true
+
+# Step 3 - Install Dependencies
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install Python dependencies'
+
+# Step 4 - Run ETL Scripts
+- script: |
+    echo "Running Retail Sales ETL Process..."
+    python week2/Data_Collection_Cleanup.py
+  displayName: 'Execute ETL Script'
+
+# Step 5 - Publish Artifacts (Cleaned Data & Reports)
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/cleaned_sales_data.csv'
+    ArtifactName: 'CleanedData'
+    publishLocation: 'Container'
+  displayName: 'Publish ETL Outputs'
+
+# Step 6 - Deploy to Azure Blob (CD)
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Retail-Sales-Connection'
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      echo "Uploading cleaned data to Azure Blob..."
+      az storage blob upload \
+        --account-name $(STORAGE_ACCOUNT) \
+        --container-name $(CONTAINER_NAME) \
+        --file $(System.DefaultWorkingDirectory)/cleaned_sales_data.csv \
+        --name cleaned_sales_data.csv
+  displayName: 'Deploy to Azure Blob'

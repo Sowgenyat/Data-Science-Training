@@ -1,0 +1,51 @@
+trigger: none
+pr: none
+
+variables:
+  - group: attendance-credentials     # This variable group stores secrets & DB credentials
+  REPORT_DIR: $(Build.ArtifactStagingDirectory)/reports
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+# 1. Checkout the repository code
+- checkout: self
+  displayName: 'Checkout repository'
+
+# 2. Set up Python 3.10 on agent
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+  displayName: 'Use Python 3.10'
+
+# 3. Install Python dependencies
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install Python dependencies'
+
+# 4. Run PySpark ETL processing to generate reports
+- script: |
+    mkdir -p "$(REPORT_DIR)"
+    python scripts/run_processing.py --outdir "$(REPORT_DIR)"
+  displayName: 'Run PySpark processing'
+  env:
+    MYSQL_HOST: $(MYSQL_HOST)
+    MYSQL_PORT: $(MYSQL_PORT)
+    MYSQL_DB: $(MYSQL_DB)
+    MYSQL_USER: $(MYSQL_USER)
+    MYSQL_PASS: $(MYSQL_PASS)
+    MONGO_URI: $(MONGO_URI)
+
+# 5. Consolidate Spark part files into single CSVs
+- script: |
+    set -e
+    for f in $(find "$(REPORT_DIR)" -type f -name 'part-*.csv'); do
+      case "$f" in
+        *attendance_summary.csv* ) cp "$f" "$(REPORT_DIR)/attendance_summary.csv";;
+        *top_5_absentees.csv* ) cp "$f" "$(REPORT_DIR)/top_5_absentees.csv";;
+        *lowest_performing_departments.csv* ) cp "$f" "$(REPORT_DIR)/lowest_performing_departments.csv";;
+      esac
+    done
+  displayName: 'Consolidate

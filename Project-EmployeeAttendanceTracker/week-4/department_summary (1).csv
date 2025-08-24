@@ -1,0 +1,4 @@
+department,avg_hours,late_rate,avg_tasks,avg_productivity
+HR,7.9,0.29,5.14,0.64
+Finance,7.66,0.12,5.29,0.69
+IT,7.34,0.5,5.33,0.73
