@@ -1,0 +1,11 @@
+transaction_id,date,customer_name,product,quantity,price,total_amount
+T001,2024-01-05,Abhinav,Smartphone,2,25000,50000
+T002,2024-01-07,Priya,Laptop,1,55000,55000
+T003,2024-01-08,Rahul,Headphones,3,1500,4500
+T004,2024-01-12,Neha,Smartwatch,2,7000,14000
+T005,2024-01-15,Aryan,Tablet,1,20000,20000
+T006,2024-01-18,Kiran,Smartphone,1,26000,26000
+T007,2024-01-20,Divya,Monitor,2,12000,24000
+T008,2024-01-22,Sachin,Laptop,1,58000,58000
+T009,2024-01-24,Megha,Keyboard,4,1200,4800
+T010,2024-01-25,Vikram,Mouse,5,800,4000

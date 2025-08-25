@@ -1,0 +1,39 @@
+# azure-pipelines.yml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+
+steps:
+  - checkout: self
+    displayName: 'Checkout repository'
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.10'
+    displayName: 'Use Python 3.10'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    displayName: 'Install Python dependencies'
+
+  - script: |
+      # ensure data folder exists and sample file presence check
+      mkdir -p data
+      ls -la data || true
+      # Run pipeline script (script will read data/sales_data.csv)
+      python sales_data_pipeline.py
+    displayName: 'Run sales_data_pipeline.py'
+    env:
+      AZURE_STORAGE_ACCOUNT_NAME: $(AZURE_STORAGE_ACCOUNT_NAME)
+      AZURE_STORAGE_ACCOUNT_KEY: $(AZURE_STORAGE_ACCOUNT_KEY)
+      AZURE_CONTAINER_NAME: $(AZURE_CONTAINER_NAME)
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: 'data'
+      artifact: 'sales-data'
+    displayName: 'Publish data folder as pipeline artifact'

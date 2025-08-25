@@ -1,0 +1,37 @@
+
+
+trigger:
+- main   
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+# Check out the code
+- task: Checkout@1
+  displayName: "Checkout Repository"
+
+# Set up Python
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+  displayName: "Set up Python 3.10"
+
+# Install dependencies
+- script: |
+    python -m pip install --upgrade pip
+    pip install pandas numpy
+  displayName: "Install Required Python Libraries"
+
+# Run the data processing script
+- script: |
+    python data_processing.py
+  displayName: "Run Data Processing Script"
+
+# Publish the cleaned CSV as an artifact
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'data'
+    ArtifactName: 'Cleaned_Data'
+    publishLocation: 'Container'
+  displayName: "Publish Cleaned Data as Artifact"

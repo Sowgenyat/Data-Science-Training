@@ -1,0 +1,11 @@
+order_id,customer_name,region,product,revenue,cost,order_date
+1001,Abhinav,North,Smartphone,50000,35000,2024-01-05
+1002,Priya,South,Laptop,,45000,2024-01-07
+1003,Rahul,,Headphones,4500,1200,2024-01-08
+1004,Neha,West,Smartwatch,14000,9000,2024-01-12
+1005,Aryan,East,Tablet,20000,15000,2024-01-15
+1003,Rahul,,Headphones,4500,1200,2024-01-08
+1006,Kiran,North,Smartphone,26000,18000,2024-01-18
+1007,Divya,South,Monitor,24000,15000,2024-01-20
+1008,Sachin,,Laptop,58000,40000,2024-01-22
+1009,Megha,West,Keyboard,4800,2000,2024-01-24
